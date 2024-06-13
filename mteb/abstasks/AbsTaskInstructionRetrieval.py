@@ -36,9 +36,9 @@ class HFDataLoaderInstructions(HFDataLoader):
         self.corpus = {}
         self.queries = {}
         self.qrels = {}
-        self.og_instructions = {}
-        self.changed_instructions = {}
-        self.top_ranked = {}
+        self.instructions = {}
+        # self.changed_instructions = {}
+        # self.top_ranked = {}
         self.hf_repo = hf_repo
         if hf_repo:
             # By default fetch qrels from same repo not a second repo with "-qrels" like in original
@@ -246,7 +246,7 @@ class AbsTaskInstructionRetrieval(AbsTask):
     def load_data(self, **kwargs):
         if self.data_loaded:
             return
-        self.corpus, self.queries, self.elevant_docs = (
+        self.corpus, self.queries, self.relevant_docs = (
             {},
             {},
             {},
@@ -261,7 +261,7 @@ class AbsTaskInstructionRetrieval(AbsTask):
             dataset_path + "-qrels" if "clarin-knext" in dataset_path else None
         )
         for split in kwargs.get("eval_splits", self.metadata_dict["eval_splits"]):
-            corpus, queries, qrels, top_ranked_init = (
+            corpus, queries, qrels = (
                 HFDataLoaderInstructions(
                     hf_repo=dataset_path,
                     hf_repo_qrels=hf_repo_qrels,
