@@ -331,13 +331,12 @@ class AbsTaskInstructionRetrieval(AbsTask):
                     self.og_relevant_docs[lang][split],
                     self.changed_relevant_docs[lang][split],
                 )
-                og_instructions, changed_instructions = (
-                    self.og_instructions[lang][split],
-                    self.changed_instructions[lang][split],
-                )
+                instructions = self.instructions[lang][split],
+                #     self.changed_instructions[lang][split],
+                # )
 
                 # top_ranked = self.top_ranked[lang][split]
-                scores_og[lang], results_og[lang] = self._evaluate_subset(
+                scores[lang], results[lang] = self._evaluate_subset(
                     retriever,
                     corpus,
                     queries,
@@ -347,29 +346,29 @@ class AbsTaskInstructionRetrieval(AbsTask):
                     lang,
                     **kwargs,
                 )
-                scores_changed[lang], results_changed[lang] = self._evaluate_subset(
-                    retriever,
-                    corpus,
-                    queries,
-                    changed_relevant_docs,
-                    changed_instructions,
-                    # top_ranked,
-                    lang,
-                    **kwargs,
-                )
+                # scores_changed[lang], results_changed[lang] = self._evaluate_subset(
+                #     retriever,
+                #     corpus,
+                #     queries,
+                #     changed_relevant_docs,
+                #     changed_instructions,
+                #     # top_ranked,
+                #     lang,
+                #     **kwargs,
+                # )
 
-                newly_irrelevant_qrels = self.create_qrel_diff(
-                    self.og_relevant_docs[lang][split],
-                    self.changed_relevant_docs[lang][split],
-                )
-                overall_changed_scores[lang] = utils.evaluate_change(
-                    results_og[lang], results_changed[lang], newly_irrelevant_qrels
-                )
+                # newly_irrelevant_qrels = self.create_qrel_diff(
+                #     self.og_relevant_docs[lang][split],
+                #     self.changed_relevant_docs[lang][split],
+                # )
+                # overall_changed_scores[lang] = utils.evaluate_change(
+                #     results_og[lang], results_changed[lang], newly_irrelevant_qrels
+                # )
 
-                overall_changed_scores[lang]["individual"] = {
-                    "original": scores_og[lang],
-                    "changed": scores_changed[lang],
-                }
+                # overall_changed_scores[lang]["individual"] = {
+                #     "original": scores[lang],
+                #     # "changed": scores_changed[lang],
+                # }
 
                 # if self.do_length_ablation:
                 #     keywords, short_instructions = (
