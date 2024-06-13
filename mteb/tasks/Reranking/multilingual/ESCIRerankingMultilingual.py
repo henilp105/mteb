@@ -16,7 +16,7 @@ _EVAL_LANGS = {
 
 
 class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
-    self._EVAL_SPLIT = 'test'
+    _EVAL_SPLIT = 'test'
     metadata = TaskMetadata(
         name="ESCIRerankingMultilingual",
         description="The dataset is a large collection of difficult Amazon search queries and results, publicly released with the aim of fostering research in improving the quality of search results.",
