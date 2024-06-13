@@ -42,6 +42,7 @@ class MultiSubsetLoader:
         """Load each subsets iteratively"""
         self.dataset = {}
         print(self.hf_subsets)
+        print(**self.metadata_dict.get("dataset", None))
         for lang in self.hf_subsets:
             self.dataset[lang] = datasets.load_dataset(
                 name=lang,
