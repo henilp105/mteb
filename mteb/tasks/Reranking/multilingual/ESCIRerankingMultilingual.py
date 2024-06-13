@@ -16,7 +16,7 @@ _EVAL_LANGS = {
 
 
 class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
-    _EVAL_SPLIT = 'test'
+    EVAL_SPLIT = 'test'
     metadata = TaskMetadata(
         name="ESCIRerankingMultilingual",
         description="The dataset is a large collection of difficult Amazon search queries and results, publicly released with the aim of fostering research in improving the quality of search results.",
@@ -137,9 +137,9 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
             split=self._EVAL_SPLIT,
             **self.metadata_dict["dataset"],
         )
-        corpus = {lang: {self._EVAL_SPLIT: {}} for lang in _LANGUAGES}
-        queries = {lang: {self._EVAL_SPLIT: {}} for lang in _LANGUAGES}
-        relevant_docs = {lang: {self._EVAL_SPLIT: {}} for lang in _LANGUAGES}
+        corpus = {lang: {self._EVAL_SPLIT: {}} for lang in _EVAL_LANGS}
+        queries = {lang: {self._EVAL_SPLIT: {}} for lang in _EVAL_LANGS}
+        relevant_docs = {lang: {self._EVAL_SPLIT: {}} for lang in _EVAL_LANGS}
 
         for example in tqdm(data, desc="Preparing data"):
             product_locale = example.get("product_locale")
