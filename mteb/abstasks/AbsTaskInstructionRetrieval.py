@@ -246,14 +246,13 @@ class AbsTaskInstructionRetrieval(AbsTask):
     def load_data(self, **kwargs):
         if self.data_loaded:
             return
-        self.corpus, self.queries, self.og_relevant_docs, self.changed_relevant_docs = (
-            {},
+        self.corpus, self.queries, self.elevant_docs = (
             {},
             {},
             {},
         )
-        self.og_instructions, self.changed_instructions = {}, {}
-        self.top_ranked = {}
+        self.instructions = {}
+        # self.top_ranked = {}
         # if self.do_length_ablation:
         #     self.keywords, self.short_instructions = {}, {}
 
@@ -277,18 +276,20 @@ class AbsTaskInstructionRetrieval(AbsTask):
             #     top_ranked[cur_inst["qid"]].append(cur_inst["pid"])
             #     for cur_inst in top_ranked_init
             # ]
-            og_instructions = {
-                query["text"]: query["instruction_og"] for query in queries
-            }
-            changed_instructions = {
-                query["text"]: query["instruction_changed"] for query in queries
-            }
+            # og_instructions = {
+            #     query["text"]: query["instruction_og"] for query in queries
+            # }
+
+            # changed_instructions = {
+            #     query["text"]: query["instruction_changed"] for query in queries
+            # }
+            instructions = {query["text"]: query["id"] for query in queries}
             # if self.do_length_ablation:
             #     keywords = {query["text"]: query["keywords"] for query in queries}
             #     short_instructions = {
             #         query["text"]: query["short_query"] for query in queries
             #     }
-            queries = {query["id"]: query["text"] for query in queries}
+            # queries = {query["id"]: query["text"] for query in queries}
             corpus = {
                 doc["id"]: {"title": doc["title"], "text": doc["text"]}
                 for doc in corpus
@@ -300,13 +301,9 @@ class AbsTaskInstructionRetrieval(AbsTask):
             (
                 self.corpus[split],
                 self.queries[split],
-                self.og_relevant_docs[split],
-                self.changed_relevant_docs[split],
-            ) = corpus, queries, og_qrels, changed_qrels
-            self.changed_instructions[split], self.og_instructions[split] = (
-                changed_instructions,
-                og_instructions,
-            )
+                self.relevant_docs[split],
+            ) = corpus, queries, qrels
+            self.instructions[split] = instructions
             # self.top_ranked[split] = top_ranked
 
             # if self.do_length_ablation:
