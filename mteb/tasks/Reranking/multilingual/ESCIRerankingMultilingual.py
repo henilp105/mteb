@@ -20,7 +20,7 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
         hf_hub_name="henilp105/ESCI",
         dataset={
             "path": "henilp105/ESCI",
-            "revision": "767790447d95e3f9d1ccc48d9493b80240595dac",
+            "revision": "8bdce351e20f29bb2e2755d3d798bc128cd601ed",
         },
         type="Reranking",
         category="s2p",
