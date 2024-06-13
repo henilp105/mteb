@@ -74,14 +74,14 @@ class HFDataLoaderInstructions(HFDataLoader):
         Dict[str, Dict[str, int]],
     ]:
         if not self.hf_repo:
-            self.og_qrels_file = os.path.join(self.qrels_folder + "_og", split + ".tsv")
-            self.changed_qrels_file = os.path.join(
-                self.qrels_folder + "_changed", split + ".tsv"
+            # self.og_qrels_file = os.path.join(self.qrels_folder + "_og", split + ".tsv")
+            self.qrels_file = os.path.join(
+                self.qrels_folder, split + ".tsv"
             )
             self.check(fIn=self.corpus_file, ext="jsonl")
             self.check(fIn=self.query_file, ext="jsonl")
-            self.check(fIn=self.og_qrels_file, ext="tsv")
-            self.check(fIn=self.changed_qrels_file, ext="tsv")
+            # self.check(fIn=self.og_qrels_file, ext="tsv")
+            self.check(fIn=self.cqrels_file, ext="tsv")
 
         if not len(self.corpus):
             logger.info("Loading Corpus...")
@@ -96,56 +96,50 @@ class HFDataLoaderInstructions(HFDataLoader):
         self._load_qrels(split, changed=False)
         self._load_qrels(split, changed=True)
         # filter queries with no qrels
-        og_qrels_dict = defaultdict(dict)
-        changed_qrels_dict = defaultdict(dict)
+        qrels_dict = defaultdict(dict)
 
         def qrels_dict_init(row):
-            og_qrels_dict[row["query-id"]][row["corpus-id"]] = int(row["score"])
+            qrels_dict[row["query-id"]][row["corpus-id"]] = int(row["score"])
 
-        def qrels_changed_dict_init(row):
-            changed_qrels_dict[row["query-id"]][row["corpus-id"]] = int(row["score"])
-
-        self.changed_qrels.map(qrels_dict_init)
-        self.og_qrels.map(qrels_changed_dict_init)
-        self.og_qrels = og_qrels_dict
-        self.changed_qrels = changed_qrels_dict
-        self.queries = self.queries.filter(lambda x: x["id"] in self.og_qrels)
+        self.qrels.map(qrels_dict_init)
+        self.qrels = qrels_dict
+        self.queries = self.queries.filter(lambda x: x["id"] in self.qrels)
         logger.info("Loaded %d %s Queries.", len(self.queries), split.upper())
         logger.info("Query Example: %s", self.queries[0])
 
         # load top_ranked
-        self.load_top_ranked()
+        # self.load_top_ranked()
 
         return (
             self.corpus,
             self.queries,
-            self.og_qrels,
-            self.changed_qrels,
-            self.top_ranked,
+            self.qrels,
+            # self.qrels,
+            # self.top_ranked,
         )
 
-    def load_top_ranked(self) -> None:
-        if self.hf_repo:
-            top_ranked_ds = load_dataset(
-                self.hf_repo,
-                "top_ranked",
-                keep_in_memory=self.keep_in_memory,
-                streaming=self.streaming,
-            )
-        else:
-            top_ranked_ds = load_dataset(
-                "json",
-                data_files=self.top_ranked_file,
-                streaming=self.streaming,
-                keep_in_memory=self.keep_in_memory,
-            )
-        top_ranked_ds = next(iter(top_ranked_ds.values()))  # get first split
-        top_ranked_ds = top_ranked_ds.cast_column("qid", Value("string"))
-        top_ranked_ds = top_ranked_ds.cast_column("pid", Value("string"))
-        top_ranked_ds = top_ranked_ds.remove_columns(
-            [col for col in top_ranked_ds.column_names if col not in ["qid", "pid"]]
-        )
-        self.top_ranked = top_ranked_ds
+    # def load_top_ranked(self) -> None:
+    #     if self.hf_repo:
+    #         top_ranked_ds = load_dataset(
+    #             self.hf_repo,
+    #             "top_ranked",
+    #             keep_in_memory=self.keep_in_memory,
+    #             streaming=self.streaming,
+    #         )
+    #     else:
+    #         top_ranked_ds = load_dataset(
+    #             "json",
+    #             data_files=self.top_ranked_file,
+    #             streaming=self.streaming,
+    #             keep_in_memory=self.keep_in_memory,
+    #         )
+    #     top_ranked_ds = next(iter(top_ranked_ds.values()))  # get first split
+    #     top_ranked_ds = top_ranked_ds.cast_column("qid", Value("string"))
+    #     top_ranked_ds = top_ranked_ds.cast_column("pid", Value("string"))
+    #     top_ranked_ds = top_ranked_ds.remove_columns(
+    #         [col for col in top_ranked_ds.column_names if col not in ["qid", "pid"]]
+    #     )
+    #     self.top_ranked = top_ranked_ds
 
     def _load_queries(self):
         if self.hf_repo:
@@ -182,16 +176,16 @@ class HFDataLoaderInstructions(HFDataLoader):
         )
         self.queries = queries_ds
 
-    def _load_qrels(self, split, changed=False):
+    def _load_qrels(self, split):
         if self.hf_repo:
             qrels_ds = load_dataset(
                 self.hf_repo_qrels,
-                "qrels_og" if not changed else "qrels_changed",
+                "qrels",
                 keep_in_memory=self.keep_in_memory,
                 streaming=self.streaming,
             )[split]
         else:
-            qrels_file = self.og_qrels_file if not changed else self.changed_qrels_file
+            qrels_file = self.qrels_file
             qrels_ds = load_dataset(
                 "csv",
                 data_files=qrels_file,
@@ -205,12 +199,12 @@ class HFDataLoaderInstructions(HFDataLoader):
                 "score": Value("float"),
             }
         )
-        qrels_ds = qrels_ds.cast(features)
+        # qrels_ds = qrels_ds.cast(features)
 
-        if changed:
-            self.changed_qrels = qrels_ds
-        else:
-            self.og_qrels = qrels_ds
+        # if changed:
+        #     self.changed_qrels = qrels_ds
+        # else:
+        self.qrels = qrels_ds.cast(features)
 
 
 class AbsTaskInstructionRetrieval(AbsTask):
@@ -221,10 +215,11 @@ class AbsTaskInstructionRetrieval(AbsTask):
     Child-classes must implement the following properties:
     self.corpus = Dict[id, Dict[str, str]] #id => dict with document datas like title and text
     self.queries = Dict[id, str] #id => query
-    self.relevant_docs = List[id, id, score]
-    self.og_instructions = Dict[str, str] query => original instruction
-    self.changed_instructions = Dict[str, str] query => changed instruction
-    self.top_ranked = Dict[id, List[id]] #id => list of top ranked document ids
+    self.relevant_docs = List[List[id], List[score]] # for n relevant documents and their scores [[id_1, ... , id_n], [score_1, ... , score_n]]
+    earlier [id,id,score]
+    # self.og_instructions = Dict[str, str] query => original instruction
+    # self.changed_instructions = Dict[str, str] query => changed instruction
+    # self.top_ranked = Dict[id, List[id]] #id => list of top ranked document ids
 
     See https://arxiv.org/abs/2403.15246 for more details
     """
@@ -244,9 +239,9 @@ class AbsTaskInstructionRetrieval(AbsTask):
         **kwargs,
     ):
         super().__init__(**kwargs)
-        self.do_length_ablation = kwargs.get("do_length_ablation", False)
-        if self.do_length_ablation:
-            logger.info("Running length ablation also...")
+        # self.do_length_ablation = kwargs.get("do_length_ablation", False)
+        # if self.do_length_ablation:
+        #     logger.info("Running length ablation also...")
 
     def load_data(self, **kwargs):
         if self.data_loaded:
@@ -259,15 +254,15 @@ class AbsTaskInstructionRetrieval(AbsTask):
         )
         self.og_instructions, self.changed_instructions = {}, {}
         self.top_ranked = {}
-        if self.do_length_ablation:
-            self.keywords, self.short_instructions = {}, {}
+        # if self.do_length_ablation:
+        #     self.keywords, self.short_instructions = {}, {}
 
         dataset_path = self.metadata_dict["dataset"]["path"]
         hf_repo_qrels = (
             dataset_path + "-qrels" if "clarin-knext" in dataset_path else None
         )
         for split in kwargs.get("eval_splits", self.metadata_dict["eval_splits"]):
-            corpus, queries, og_qrels, changed_qrels, top_ranked_init = (
+            corpus, queries, qrels, top_ranked_init = (
                 HFDataLoaderInstructions(
                     hf_repo=dataset_path,
                     hf_repo_qrels=hf_repo_qrels,
@@ -277,30 +272,30 @@ class AbsTaskInstructionRetrieval(AbsTask):
             )
 
             # Conversion from DataSet
-            top_ranked = defaultdict(list)
-            [
-                top_ranked[cur_inst["qid"]].append(cur_inst["pid"])
-                for cur_inst in top_ranked_init
-            ]
+            # top_ranked = defaultdict(list)
+            # [
+            #     top_ranked[cur_inst["qid"]].append(cur_inst["pid"])
+            #     for cur_inst in top_ranked_init
+            # ]
             og_instructions = {
                 query["text"]: query["instruction_og"] for query in queries
             }
             changed_instructions = {
                 query["text"]: query["instruction_changed"] for query in queries
             }
-            if self.do_length_ablation:
-                keywords = {query["text"]: query["keywords"] for query in queries}
-                short_instructions = {
-                    query["text"]: query["short_query"] for query in queries
-                }
+            # if self.do_length_ablation:
+            #     keywords = {query["text"]: query["keywords"] for query in queries}
+            #     short_instructions = {
+            #         query["text"]: query["short_query"] for query in queries
+            #     }
             queries = {query["id"]: query["text"] for query in queries}
             corpus = {
                 doc["id"]: {"title": doc["title"], "text": doc["text"]}
                 for doc in corpus
             }
-            assert (
-                len(top_ranked) == len(queries)
-            ), f"Top ranked not loaded properly! Expected {len(self.queries)} but got {len(self.top_ranked)}."
+            # assert (
+            #     len(top_ranked) == len(queries)
+            # ), f"Top ranked not loaded properly! Expected {len(self.queries)} but got {len(self.top_ranked)}."
 
             (
                 self.corpus[split],
@@ -312,13 +307,13 @@ class AbsTaskInstructionRetrieval(AbsTask):
                 changed_instructions,
                 og_instructions,
             )
-            self.top_ranked[split] = top_ranked
+            # self.top_ranked[split] = top_ranked
 
-            if self.do_length_ablation:
-                self.keywords[split], self.short_instructions[split] = (
-                    keywords,
-                    short_instructions,
-                )
+            # if self.do_length_ablation:
+            #     self.keywords[split], self.short_instructions[split] = (
+            #         keywords,
+            #         short_instructions,
+            #     )
 
         self.data_loaded = True
 
@@ -345,14 +340,14 @@ class AbsTaskInstructionRetrieval(AbsTask):
                     self.changed_instructions[lang][split],
                 )
 
-                top_ranked = self.top_ranked[lang][split]
+                # top_ranked = self.top_ranked[lang][split]
                 scores_og[lang], results_og[lang] = self._evaluate_subset(
                     retriever,
                     corpus,
                     queries,
                     og_relevant_docs,
                     og_instructions,
-                    top_ranked,
+                    # top_ranked,
                     lang,
                     **kwargs,
                 )
@@ -362,7 +357,7 @@ class AbsTaskInstructionRetrieval(AbsTask):
                     queries,
                     changed_relevant_docs,
                     changed_instructions,
-                    top_ranked,
+                    # top_ranked,
                     lang,
                     **kwargs,
                 )
@@ -380,133 +375,133 @@ class AbsTaskInstructionRetrieval(AbsTask):
                     "changed": scores_changed[lang],
                 }
 
-                if self.do_length_ablation:
-                    keywords, short_instructions = (
-                        self.keywords[lang][split],
-                        self.short_instructions[lang][split],
-                    )
-                    scores_base[lang], results_base[lang] = self._evaluate_subset(
-                        retriever,
-                        corpus,
-                        queries,
-                        og_relevant_docs,
-                        defaultdict(str),
-                        top_ranked,
-                        lang,
-                        **kwargs,
-                    )
-                    scores_w_keywords = self._evaluate_subset(
-                        retriever,
-                        corpus,
-                        queries,
-                        og_relevant_docs,
-                        keywords,
-                        top_ranked,
-                        lang,
-                        **kwargs,
-                    )
-                    scores_w_short_instr = self._evaluate_subset(
-                        retriever,
-                        corpus,
-                        queries,
-                        og_relevant_docs,
-                        short_instructions,
-                        top_ranked,
-                        lang,
-                        **kwargs,
-                    )
-                    overall_changed_scores[lang]["length_ablation"] = {
-                        "keywords": scores_w_keywords,
-                        "short_instructions": scores_w_short_instr,
-                        "base": scores_base[lang],
-                    }
-        else:  # seems like these two can be combined into one (with the new lang="default")
-            lang = "default"
-            corpus, queries = self.corpus[split], self.queries[split]
-            og_relevant_docs, changed_relevant_docs = (
-                self.og_relevant_docs[split],
-                self.changed_relevant_docs[split],
-            )
-            og_instructions, changed_instructions = (
-                self.og_instructions[split],
-                self.changed_instructions[split],
-            )
-            top_ranked = self.top_ranked[split]
+                # if self.do_length_ablation:
+                #     keywords, short_instructions = (
+                #         self.keywords[lang][split],
+                #         self.short_instructions[lang][split],
+                #     )
+                #     scores_base[lang], results_base[lang] = self._evaluate_subset(
+                #         retriever,
+                #         corpus,
+                #         queries,
+                #         og_relevant_docs,
+                #         defaultdict(str),
+                #         top_ranked,
+                #         lang,
+                #         **kwargs,
+                #     )
+                #     scores_w_keywords = self._evaluate_subset(
+                #         retriever,
+                #         corpus,
+                #         queries,
+                #         og_relevant_docs,
+                #         keywords,
+                #         top_ranked,
+                #         lang,
+                #         **kwargs,
+                #     )
+                #     scores_w_short_instr = self._evaluate_subset(
+                #         retriever,
+                #         corpus,
+                #         queries,
+                #         og_relevant_docs,
+                #         short_instructions,
+                #         top_ranked,
+                #         lang,
+                #         **kwargs,
+                #     )
+                #     overall_changed_scores[lang]["length_ablation"] = {
+                #         "keywords": scores_w_keywords,
+                #         "short_instructions": scores_w_short_instr,
+                #         "base": scores_base[lang],
+                #     }
+        # else:  # seems like these two can be combined into one (with the new lang="default")
+        lang = "default"
+        corpus, queries = self.corpus[split], self.queries[split]
+        og_relevant_docs, changed_relevant_docs = (
+            self.og_relevant_docs[split],
+            self.changed_relevant_docs[split],
+        )
+        og_instructions, changed_instructions = (
+            self.og_instructions[split],
+            self.changed_instructions[split],
+        )
+        # top_ranked = self.top_ranked[split]
 
-            scores_og, results_og = self._evaluate_subset(
-                retriever,
-                corpus,
-                queries,
-                og_relevant_docs,
-                og_instructions,
-                top_ranked,
-                None,
-                **kwargs,
-            )
+        scores_og, results_og = self._evaluate_subset(
+            retriever,
+            corpus,
+            queries,
+            og_relevant_docs,
+            og_instructions,
+            # top_ranked,
+            None,
+            **kwargs,
+        )
 
-            scores_changed, results_changed = self._evaluate_subset(
-                retriever,
-                corpus,
-                queries,
-                changed_relevant_docs,
-                changed_instructions,
-                top_ranked,
-                None,
-                **kwargs,
-            )
+        scores_changed, results_changed = self._evaluate_subset(
+            retriever,
+            corpus,
+            queries,
+            changed_relevant_docs,
+            changed_instructions,
+            # top_ranked,
+            None,
+            **kwargs,
+        )
 
-            newly_irrelevant_qrels = self.create_qrel_diff(
-                self.og_relevant_docs[split], self.changed_relevant_docs[split]
-            )
-            overall_changed_scores[lang] = utils.evaluate_change(
-                results_og, results_changed, newly_irrelevant_qrels
-            )
+        newly_irrelevant_qrels = self.create_qrel_diff(
+            self.og_relevant_docs[split], self.changed_relevant_docs[split]
+        )
+        overall_changed_scores[lang] = utils.evaluate_change(
+            results_og, results_changed, newly_irrelevant_qrels
+        )
 
-            overall_changed_scores[lang]["individual"] = {
-                "original": scores_og,
-                "changed": scores_changed,
-            }
+        overall_changed_scores[lang]["individual"] = {
+            "original": scores_og,
+            "changed": scores_changed,
+        }
 
-            if self.do_length_ablation:
-                keywords, short_instructions = (
-                    self.keywords[split],
-                    self.short_instructions[split],
-                )
-                scores_w_keywords = self._evaluate_subset(
-                    retriever,
-                    corpus,
-                    queries,
-                    og_relevant_docs,
-                    keywords,
-                    top_ranked,
-                    None,
-                    **kwargs,
-                )
-                scores_w_short_instr = self._evaluate_subset(
-                    retriever,
-                    corpus,
-                    queries,
-                    og_relevant_docs,
-                    short_instructions,
-                    top_ranked,
-                    None,
-                    **kwargs,
-                )
-                scores_base, results_base = self._evaluate_subset(
-                    retriever,
-                    corpus,
-                    queries,
-                    og_relevant_docs,
-                    defaultdict(str),
-                    top_ranked,
-                    None,
-                    **kwargs,
-                )
-                overall_changed_scores[lang]["length_ablation"] = {
-                    "keywords": scores_w_keywords,
-                    "short_instructions": scores_w_short_instr,
-                    "base": scores_base,
-                }
+            # if self.do_length_ablation:
+            #     keywords, short_instructions = (
+            #         self.keywords[split],
+            #         self.short_instructions[split],
+            #     )
+            #     scores_w_keywords = self._evaluate_subset(
+            #         retriever,
+            #         corpus,
+            #         queries,
+            #         og_relevant_docs,
+            #         keywords,
+            #         top_ranked,
+            #         None,
+            #         **kwargs,
+            #     )
+            #     scores_w_short_instr = self._evaluate_subset(
+            #         retriever,
+            #         corpus,
+            #         queries,
+            #         og_relevant_docs,
+            #         short_instructions,
+            #         top_ranked,
+            #         None,
+            #         **kwargs,
+            #     )
+            #     scores_base, results_base = self._evaluate_subset(
+            #         retriever,
+            #         corpus,
+            #         queries,
+            #         og_relevant_docs,
+            #         defaultdict(str),
+            #         top_ranked,
+            #         None,
+            #         **kwargs,
+            #     )
+            #     overall_changed_scores[lang]["length_ablation"] = {
+            #         "keywords": scores_w_keywords,
+            #         "short_instructions": scores_w_short_instr,
+            #         "base": scores_base,
+            #     }
 
         return overall_changed_scores
 
@@ -517,7 +512,7 @@ class AbsTaskInstructionRetrieval(AbsTask):
         queries: Dict[str, str],
         relevant_docs: Dict[str, Dict[str, int]],
         instructions: Dict[str, str],
-        top_ranked: Dict[str, List[str]],
+        # top_ranked: Dict[str, List[str]],
         lang=None,
         **kwargs,
     ):
@@ -531,7 +526,7 @@ class AbsTaskInstructionRetrieval(AbsTask):
             cur_docs = {
                 key: value
                 for (key, value) in corpus.items()
-                if key in top_ranked[query_id]
+                if key in top_ranked[query_id] # TODO: check if this is correct
             }
             all_results.append(
                 retriever(
