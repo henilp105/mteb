@@ -414,37 +414,31 @@ class AbsTaskInstructionRetrieval(AbsTask):
         # else:  # seems like these two can be combined into one (with the new lang="default")
         lang = "default"
         corpus, queries = self.corpus[split], self.queries[split]
-        og_relevant_docs, changed_relevant_docs = (
-            self.og_relevant_docs[split],
-            self.changed_relevant_docs[split],
-        )
-        og_instructions, changed_instructions = (
-            self.og_instructions[split],
-            self.changed_instructions[split],
-        )
+        relevant_docs = self.relevant_docs[split]
+        instructions = self.instructions[split]
         # top_ranked = self.top_ranked[split]
 
-        scores_og, results_og = self._evaluate_subset(
+        scores, results = self._evaluate_subset(
             retriever,
             corpus,
             queries,
-            og_relevant_docs,
-            og_instructions,
+            relevant_docs,
+            instructions,
             # top_ranked,
             None,
             **kwargs,
         )
 
-        scores_changed, results_changed = self._evaluate_subset(
-            retriever,
-            corpus,
-            queries,
-            changed_relevant_docs,
-            changed_instructions,
-            # top_ranked,
-            None,
-            **kwargs,
-        )
+        # scores_changed, results_changed = self._evaluate_subset(
+        #     retriever,
+        #     corpus,
+        #     queries,
+        #     changed_relevant_docs,
+        #     changed_instructions,
+        #     # top_ranked,
+        #     None,
+        #     **kwargs,
+        # )
 
         newly_irrelevant_qrels = self.create_qrel_diff(
             self.og_relevant_docs[split], self.changed_relevant_docs[split]
@@ -454,8 +448,8 @@ class AbsTaskInstructionRetrieval(AbsTask):
         )
 
         overall_changed_scores[lang]["individual"] = {
-            "original": scores_og,
-            "changed": scores_changed,
+            "original": scores,
+            # "changed": scores_changed,
         }
 
             # if self.do_length_ablation:
