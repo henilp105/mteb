@@ -219,5 +219,5 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
             ),
         )
         self.queries = self._filter_non_existing_queries(self.queries, self.relevant_docs)
-
+        self.dataset = self.corpus
         self.data_loaded = True
