@@ -24,7 +24,7 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
         },
         type="Reranking",
         category="s2p",
-        eval_splits=["en"],
+        eval_splits=["test"],
         eval_langs=_EVAL_LANGS,
         main_score="map",
         date=("2022-05-01", "2022-06-14"),
