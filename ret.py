@@ -10,7 +10,10 @@ model_name = "average_word_embeddings_komninos"
 model = SentenceTransformer(model_name)
 
 for i in data:
-    tasks = mteb.get_tasks(tasks=[i])
+    try:
+        tasks = mteb.get_tasks(tasks=[i])
+    except:
+        continue
     print(tasks)
     evaluation = mteb.MTEB(tasks=tasks)
     results = evaluation.run(model, output_folder=f"results/{model_name}")
