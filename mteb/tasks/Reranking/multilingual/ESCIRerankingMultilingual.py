@@ -16,7 +16,7 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
     metadata = TaskMetadata(
         name="ESCIRerankingMultilingual",
         description="The dataset is a large collection of difficult Amazon search queries and results, publicly released with the aim of fostering research in improving the quality of search results.",
-        reference="https://huggingface.co/datasets/henilp105/ESCI",
+        reference="https://arxiv.org/abs/2206.06588",
         hf_hub_name="henilp105/ESCI",
         dataset={
             "path": "henilp105/ESCI",
@@ -24,7 +24,7 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
         },
         type="Reranking",
         category="s2p",
-        eval_splits=["test"],
+        eval_splits=["en"],
         eval_langs=_EVAL_LANGS,
         main_score="map",
         date=("2022-05-01", "2022-06-14"),
