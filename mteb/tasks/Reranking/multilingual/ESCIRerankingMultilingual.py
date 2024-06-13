@@ -103,8 +103,8 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
                         remove_query_id.append(query_id)
                     else:
                         relevant_docs[lang][split][query_id] = query_relevant
-                for query_id in remove_query_id:
-                    del relevant_docs[lang][split][query_id]
+                # for query_id in remove_query_id:
+                #     del relevant_docs[lang][split][query_id]
         return relevant_docs
 
     @staticmethod
@@ -117,8 +117,8 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
                     for product_id in relevant_docs[lang][split][query_id]
                 }
                 non_existent_docs = set(corpus[lang][split]).difference(product_ids)
-                for product_id in non_existent_docs:
-                    del corpus[lang][split][product_id]
+                # for product_id in non_existent_docs:
+                #     del corpus[lang][split][product_id]
         return corpus
 
     @staticmethod
@@ -126,8 +126,8 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
         for lang in queries:
             for split in queries[lang]:
                 non_existent_queries = set(queries).difference(set(relevant_docs[lang][split]))
-                for query_id in non_existent_queries:
-                    del queries[lang][split][query_id]
+                # for query_id in non_existent_queries:
+                #     del queries[lang][split][query_id]
         return queries
 
     def load_data(self, **kwargs):
