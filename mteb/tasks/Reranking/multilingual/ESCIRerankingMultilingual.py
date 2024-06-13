@@ -11,7 +11,7 @@ from tqdm import tqdm
 _EVAL_LANGS = {
    "en": ["eng-Latn"],
    "es": ["spa-Latn"],
-   "jp": ["jpn-Latn"],
+   "jp": ["jpn-Jpan"],
 }
 
 
