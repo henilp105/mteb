@@ -9,5 +9,6 @@ from .fra.AlloprofReranking import *
 from .fra.SyntecReranking import *
 from .multilingual.MIRACLReranking import *
 from .multilingual.WikipediaRerankingMultilingual import *
+from .multilingual.ESCIRerankingMultilingual import *
 from .rus.RuBQReranking import *
 from .zho.CMTEBReranking import *
