@@ -93,8 +93,7 @@ class HFDataLoaderInstructions(HFDataLoader):
             logger.info("Loading Queries...")
             self._load_queries()
 
-        self._load_qrels(split, changed=False)
-        self._load_qrels(split, changed=True)
+        self._load_qrels(split)
         # filter queries with no qrels
         qrels_dict = defaultdict(dict)
 
