@@ -131,7 +131,7 @@ class ESCIRerankingMultilingual(MultilingualTask, AbsTaskReranking):
         return queries
 
     def load_data(self, **kwargs):
-        product_locale_map = {"jp": "ja", "us": "en"}
+        product_locale_map = {"us": "en"}
         label_map = {"Exact": 3, "Substitute": 2, "Complement": 1, "Irrelevant": 0}
         data = datasets.load_dataset(
             split=self._EVAL_SPLIT,
