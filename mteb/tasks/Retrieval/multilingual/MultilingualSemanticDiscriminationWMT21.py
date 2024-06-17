@@ -2,11 +2,11 @@ from typing import Dict, List
 
 import datasets
 
-from mteb.abstasks import AbsTaskRetrieval, CrosslingualTask, TaskMetadata
+from mteb.abstasks import AbsTaskRetrieval, MultilingualTask, TaskMetadata
 
 _LANGUAGES = {
-    "wmt19.de.fr": ["deu-Latn", "fra-Latn"],
-    "wmt19.fr.de": ["fra-Latn", "deu-Latn"],
+    "wmt21.de.fr": ["deu-Latn", "fra-Latn"],
+    "wmt21.fr.de": ["fra-Latn", "deu-Latn"],
 }
 
 
@@ -28,21 +28,21 @@ def extend_lang_pairs() -> Dict[str, List[str]]:
 _EVAL_LANGS = extend_lang_pairs()
 
 
-class CrossLingualSemanticDiscriminationWMT19(AbsTaskRetrieval, CrosslingualTask):
+class MultilingualTaskSemanticDiscriminationWMT21(AbsTaskRetrieval, MultilingualTask):
     metadata = TaskMetadata(
-        name="CrossLingualSemanticDiscriminationWMT19",
+        name="MultilingualTaskSemanticDiscriminationWMT21",
         dataset={
             "path": "Andrianos/clsd_wmt19_21",
             "revision": "9627fbdb39b827ee5c066011ebe1e947cdb137bd",
         },
-        description="Evaluate a multilingual embedding model based on its ability to discriminate against the original parallel pair against challenging distractors - spawning from WMT19 DE-FR test set",
+        description="Evaluate a multilingual embedding model based on its ability to discriminate against the original parallel pair against challenging distractors - spawning from WMT21 DE-FR test set",
         reference="https://huggingface.co/datasets/Andrianos/clsd_wmt19_21",
         type="Retrieval",
         category="s2s",
         eval_splits=["test"],
         eval_langs=_EVAL_LANGS,
         main_score="recall_at_1",
-        date=("2018-01-01", "2023-12-12"),
+        date=("2020-01-01", "2023-12-12"),
         form=["written"],
         domains=["News"],
         task_subtypes=["Cross-Lingual Semantic Discrimination"],
@@ -52,8 +52,8 @@ class CrossLingualSemanticDiscriminationWMT19(AbsTaskRetrieval, CrosslingualTask
         dialect=[],
         text_creation="LM-generated and verified",
         bibtex_citation="preprint_coming",
-        n_samples={"test": 2946},
-        avg_character_length={"test": 161},
+        n_samples={"test": 1786},
+        avg_character_length={"test": 159},
     )
 
     def __init__(self, **kwargs):
