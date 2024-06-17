@@ -1,0 +1,930 @@
+{
+    "ARCChallenge": [
+        "RAR-b/ARC-Challenge",
+        "c481e0da3dcbbad8bce7721dea9085b74320a0a3"
+    ],
+    "AfriSentiClassification": [
+        "shmuhammad/AfriSenti-twitter-sentiment",
+        "b52e930385cf5ed7f063072c3f7bd17b599a16cf"
+    ],
+    "AlloProfClusteringP2P.v2": [
+        "lyon-nlp/alloprof",
+        "392ba3f5bcc8c51f578786c1fc3dae648662cb9b"
+    ],
+    "AlloProfClusteringS2S.v2": [
+        "lyon-nlp/alloprof",
+        "392ba3f5bcc8c51f578786c1fc3dae648662cb9b"
+    ],
+    "AlphaNLI": [
+        "RAR-b/alphanli",
+        "303f40ef3d50918d3dc43577d33f2f7344ad72c1"
+    ],
+    "AmazonCounterfactualClassification": [
+        "mteb/amazon_counterfactual",
+        "e8379541af4e31359cca9fbcf4b00f2671dba205"
+    ],
+    "AmazonReviewsClassification": [
+        "mteb/amazon_reviews_multi",
+        "1399c76144fd37290681b995c656ef9b2e06e26d"
+    ],
+    "ArguAna-PL": [
+        "clarin-knext/arguana-pl",
+        "63fc86750af76253e8c760fc9e534bbf24d260a2"
+    ],
+    "ArxivClassification": [
+        "ccdv/arxiv-classification",
+        "f9bd92144ed76200d6eb3ce73a8bd4eba9ffdc85"
+    ],
+    "BSARDRetrieval": [
+        "maastrichtlawtech/bsard",
+        "5effa1b9b5fa3b0f9e12523e6e43e5f86a6e6d59"
+    ],
+    "BrazilianToxicTweetsClassification": [
+        "JAugusto97/told-br",
+        "fb4f11a5bc68b99891852d20f1ec074be6289768"
+    ],
+    "CTKFactsNLI": [
+        "ctu-aic/ctkfacts_nli",
+        "387ae4582c8054cb52ef57ef0941f19bd8012abf"
+    ],
+    "CUADAffiliateLicenseLicenseeLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADAffiliateLicenseLicensorLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADAntiAssignmentLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADAuditRightsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADCapOnLiabilityLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADChangeOfControlLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADCompetitiveRestrictionExceptionLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADCovenantNotToSueLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADEffectiveDateLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADExclusivityLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADExpirationDateLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADGoverningLawLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADIPOwnershipAssignmentLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADInsuranceLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADIrrevocableOrPerpetualLicenseLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADJointIPOwnershipLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADLicenseGrantLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADLiquidatedDamagesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADMinimumCommitmentLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADMostFavoredNationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADNoSolicitOfCustomersLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADNoSolicitOfEmployeesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADNonCompeteLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADNonDisparagementLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADNonTransferableLicenseLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADNoticePeriodToTerminateRenewalLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADPostTerminationServicesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADPriceRestrictionsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADRenewalTermLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADRevenueProfitSharingLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADRofrRofoRofnLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADSourceCodeEscrowLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADTerminationForConvenienceLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADThirdPartyBeneficiaryLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADUncappedLiabilityLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADUnlimitedAllYouCanEatLicenseLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADVolumeRestrictionLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CUADWarrantyDurationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CanadaTaxCourtOutcomesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CodeSearchNetRetrieval": [
+        "code-search-net/code_search_net",
+        "fdc6a9e39575768c27eb8a2a5f702bf846eb4759"
+    ],
+    "ContractNLIConfidentialityOfAgreementLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLIExplicitIdentificationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLIInclusionOfVerballyConveyedInformationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLILimitedUseLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLINoLicensingLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLINoticeOnCompelledDisclosureLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLIPermissibleAcquirementOfSimilarInformationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLIPermissibleCopyLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLIPermissibleDevelopmentOfSimilarInformationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLIPermissiblePostAgreementPossessionLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLIReturnOfConfidentialInformationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLISharingWithEmployeesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLISharingWithThirdPartiesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "ContractNLISurvivalOfObligationsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "CorporateLobbyingLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "DBPedia-PL": [
+        "clarin-knext/dbpedia-pl",
+        "76afe41d9af165cc40999fcaa92312b8b012064a"
+    ],
+    "DalajClassification": [
+        "AI-Sweden/SuperLim",
+        "7ebf0b4caa7b2ae39698a889de782c09e6f5ee56"
+    ],
+    "DanFEVER": [
+        "strombergnlp/danfever",
+        "5d01e3f6a661d48e127ab5d7e3aaa0dc8331438a"
+    ],
+    "DanishPoliticalCommentsClassification": [
+        "community-datasets/danish_political_comments",
+        "edbb03726c04a0efab14fc8c3b8b79e4d420e5a1"
+    ],
+    "DefinitionClassificationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "DiaBlaBitextMining": [
+        "rbawden/DiaBLa",
+        "5345895c56a601afe1a98519ce3199be60a27dba"
+    ],
+    "Diversity1LegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "Diversity2LegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "Diversity3LegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "Diversity4LegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "Diversity5LegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "Diversity6LegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "DutchBookReviewSentimentClassification": [
+        "benjaminvdb/dbrd",
+        "3f756ab4572e071eb53e887ab629f19fa747d39e"
+    ],
+    "FaithDial": [
+        "McGill-NLP/FaithDial",
+        "7a414e80725eac766f2602676dc8b39f80b061e4"
+    ],
+    "FiQA-PL": [
+        "clarin-knext/fiqa-pl",
+        "2e535829717f8bf9dc829b7f911cc5bbd4e6608e"
+    ],
+    "FilipinoHateSpeechClassification": [
+        "hate-speech-filipino/hate_speech_filipino",
+        "1994e9bb7f3ec07518e3f0d9e870cb293e234686"
+    ],
+    "FinParaSTS": [
+        "TurkuNLP/turku_paraphrase_corpus",
+        "e4428e399de70a21b8857464e76f0fe859cabe05"
+    ],
+    "FinancialPhrasebankClassification": [
+        "takala/financial_phrasebank",
+        "1484d06fe7af23030c7c977b12556108d1f67039"
+    ],
+    "FrenkEnClassification": [
+        "classla/FRENK-hate-en",
+        "52483dba0ff23291271ee9249839865e3c3e7e50"
+    ],
+    "FrenkHrClassification": [
+        "classla/FRENK-hate-hr",
+        "e7fc9f3d8d6c5640a26679d8a50b1666b02cc41f"
+    ],
+    "FrenkSlClassification": [
+        "classla/FRENK-hate-sl",
+        "37c8b42c63d4eb75f549679158a85eb5bd984caa"
+    ],
+    "FunctionOfDecisionSectionLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "GeoreviewClassification": [
+        "ai-forever/georeview-classification",
+        "3765c0d1de6b7d264bc459433c45e5a75513839c"
+    ],
+    "GerDaLIR": [
+        "jinaai/ger_da_lir",
+        "0bb47f1d73827e96964edb84dfe552f62f4fd5eb"
+    ],
+    "GermanDPR": [
+        "deepset/germandpr",
+        "5129d02422a66be600ac89cd3e8531b4f97d347d"
+    ],
+    "HagridRetrieval": [
+        "miracl/hagrid",
+        "b2a085913606be3c4f2f1a8bff1810e38bade8fa"
+    ],
+    "HateSpeechPortugueseClassification": [
+        "hate-speech-portuguese/hate_speech_portuguese",
+        "b0f431acbf8d3865cb7c7b3effb2a9771a618ebc"
+    ],
+    "HebrewSentimentAnalysis": [
+        "omilab/hebrew_sentiment",
+        "952c9525954c1dac50d5f95945eb5585bb6464e7"
+    ],
+    "HellaSwag": [
+        "RAR-b/hellaswag",
+        "a5c990205e017d10761197ccab3000936689c3ae"
+    ],
+    "HindiDiscourseClassification": [
+        "midas/hindi_discourse",
+        "218ce687943a0da435d6d62751a4ab216be6cd40"
+    ],
+    "HotelReviewSentimentClassification": [
+        "Elnagara/hard",
+        "b108d2c32ee4e1f4176ea233e1a5ac17bceb9ef9"
+    ],
+    "HotpotQA-PL": [
+        "clarin-knext/hotpotqa-pl",
+        "a0bd479ac97b4ccb5bd6ce320c415d0bb4beb907"
+    ],
+    "IWSLT2017BitextMining": [
+        "IWSLT/iwslt2017",
+        "c18a4f81a47ae6fa079fe9d32db288ddde38451d"
+    ],
+    "IndicQARetrieval": [
+        "ai4bharat/IndicQA",
+        "570d90ae4f7b64fe4fdd5f42fc9f9279b8c9fd9d"
+    ],
+    "IndicReviewsClusteringP2P": [
+        "ai4bharat/IndicSentiment",
+        "ccb472517ce32d103bba9d4f5df121ed5a6592a4"
+    ],
+    "InsurancePolicyInterpretationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "InternationalCitizenshipQuestionsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "Itacola": [
+        "gsarti/itacola",
+        "f8f98e5c4d3059cf1a00c8eb3d70aa271423f636"
+    ],
+    "JCrewBlockerLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "JSICK": [
+        "sbintuitions/JMTEB",
+        "e4af6c73182bebb41d94cb336846e5a452454ea7"
+    ],
+    "JSTS": [
+        "shunk031/JGLUE",
+        "50e79c314a7603ebc92236b66a0973d51a00ed8c"
+    ],
+    "JaGovFaqsRetrieval": [
+        "sbintuitions/JMTEB",
+        "e4af6c73182bebb41d94cb336846e5a452454ea7"
+    ],
+    "JaQuADRetrieval": [
+        "SkelterLabsInc/JaQuAD",
+        "05600ff310a0970823e70f82f428893b85c71ffe"
+    ],
+    "JavaneseIMDBClassification": [
+        "w11wo/imdb-javanese",
+        "11bef3dfce0ce107eb5e276373dcd28759ce85ee"
+    ],
+    "KorHateClassification": [
+        "inmoonlight/kor_hate",
+        "bd1a7370caf712125fac1fda375834ca8ddefaca"
+    ],
+    "KorSarcasmClassification": [
+        "SpellOnYou/kor_sarcasm",
+        "8079d24b9f1278c6fbc992921c1271457a1064ff"
+    ],
+    "LearnedHandsBenefitsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsBusinessLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsConsumerLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsCourtsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsCrimeLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsDivorceLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsDomesticViolenceLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsEducationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsEmploymentLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsEstatesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsFamilyLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsHealthLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsHousingLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsImmigrationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsTortsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LearnedHandsTrafficLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LegalBenchPC": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LegalReasoningCausalityLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "LivedoorNewsClustering": [
+        "sbintuitions/JMTEB",
+        "e4af6c73182bebb41d94cb336846e5a452454ea7"
+    ],
+    "MAUDLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "MIRACLReranking": [
+        "miracl/mmteb-miracl-reranking",
+        "6d1962c527217f8927fca80f890f14f36b2802af"
+    ],
+    "MIRACLRetrieval": [
+        "jinaai/miracl",
+        "d28a029f35c4ff7f616df47b0edf54e6882395e6"
+    ],
+    "MLQARetrieval": [
+        "facebook/mlqa",
+        "397ed406c1a7902140303e7faf60fff35b58d285"
+    ],
+    "MSMARCO-PL": [
+        "clarin-knext/msmarco-pl",
+        "8634c07806d5cce3a6138e260e59b81760a0a640"
+    ],
+    "MTOPDomainClassification": [
+        "mteb/mtop_domain",
+        "d80d48c1eb48d3562165c59d59d0034df9fff0bf"
+    ],
+    "MTOPIntentClassification": [
+        "mteb/mtop_intent",
+        "ae001d0e6b1228650b7bd1c2c65fb50ad11a8aba"
+    ],
+    "MasakhaNEWSClusteringP2P": [
+        "masakhane/masakhanews",
+        "8ccc72e69e65f40c70e117d8b3c08306bb788b60"
+    ],
+    "MasakhaNEWSClusteringS2S": [
+        "masakhane/masakhanews",
+        "8ccc72e69e65f40c70e117d8b3c08306bb788b60"
+    ],
+    "MewsC16JaClustering": [
+        "sbintuitions/JMTEB",
+        "e4af6c73182bebb41d94cb336846e5a452454ea7"
+    ],
+    "MintakaRetrieval": [
+        "jinaai/mintakaqa",
+        "efa78cc2f74bbcd21eff2261f9e13aebe40b814e"
+    ],
+    "Moroco": [
+        "universityofbucharest/moroco",
+        "d64d9b8cd876056a5c24552afe3caf7e6fd26c8e"
+    ],
+    "MultiLongDocRetrieval": [
+        "Shitao/MLDR",
+        "d67138e705d963e346253a80e59676ddb418810a"
+    ],
+    "MyanmarNews": [
+        "ayehninnkhine/myanmar_news",
+        "b899ec06227db3679b0fe3c4188a6b48cc0b65eb"
+    ],
+    "NFCorpus-PL": [
+        "clarin-knext/nfcorpus-pl",
+        "9a6f9567fda928260afed2de480d79c98bf0bec0"
+    ],
+    "NLPJournalAbsIntroRetrieval": [
+        "sbintuitions/JMTEB",
+        "e4af6c73182bebb41d94cb336846e5a452454ea7"
+    ],
+    "NLPJournalTitleAbsRetrieval": [
+        "sbintuitions/JMTEB",
+        "e4af6c73182bebb41d94cb336846e5a452454ea7"
+    ],
+    "NLPJournalTitleIntroRetrieval": [
+        "sbintuitions/JMTEB",
+        "e4af6c73182bebb41d94cb336846e5a452454ea7"
+    ],
+    "NQ-PL": [
+        "clarin-knext/nq-pl",
+        "f171245712cf85dd4700b06bef18001578d0ca8d"
+    ],
+    "NYSJudicialEthicsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "NaijaSenti": [
+        "HausaNLP/NaijaSenti-Twitter",
+        "a3d0415a828178edf3466246f49cfcd83b946ab3"
+    ],
+    "NeuCLIR2022Retrieval": [
+        "mteb/neuclir-2022",
+        "920fc15b81e2324e52163904be663f340235cdea"
+    ],
+    "NeuCLIR2023Retrieval": [
+        "mteb/neuclir-2023",
+        "dfad7cc7fe4064d6568d6b7d43b99e3a0246d29b"
+    ],
+    "NordicLangClassification": [
+        "strombergnlp/nordic_langid",
+        "e254179d18ab0165fdb6dbef91178266222bee2a"
+    ],
+    "NorwegianParliamentClassification": [
+        "NbAiLab/norwegian_parliament",
+        "f7393532774c66312378d30b197610b43d751972"
+    ],
+    "NusaX-senti": [
+        "indonlp/NusaX-senti",
+        "a450ba4b1b6d2216c3674d3e576b2e85ce729add"
+    ],
+    "OPP115DataRetentionLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OPP115DataSecurityLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OPP115DoNotTrackLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OPP115FirstPartyCollectionUseLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OPP115InternationalAndSpecificAudiencesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OPP115PolicyChangeLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OPP115ThirdPartySharingCollectionLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OPP115UserAccessEditAndDeletionLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OPP115UserChoiceControlLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OpusparcusPC": [
+        "GEM/opusparcus",
+        "9e9b1f8ef51616073f47f306f7f47dd91663f86a"
+    ],
+    "OralArgumentQuestionPurposeLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "OverrulingLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "PAC": [
+        "laugustyniak/abusive-clauses-pl",
+        "fc69d1c153a8ccdcf1eef52f4e2a27f88782f543"
+    ],
+    "PIQA": [
+        "RAR-b/piqa",
+        "bb30be7e9184e6b6b1d99bbfe1bb90a3a81842e6"
+    ],
+    "PROALegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "PatentClassification": [
+        "ccdv/patent-classification",
+        "2f38a1dfdecfacee0184d74eaeafd3c0fb49d2a6"
+    ],
+    "PawsX": [
+        "google-research-datasets/paws-x",
+        "8a04d940a42cd40658986fdd8e3da561533a3646"
+    ],
+    "PersonalJurisdictionLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "PoemSentimentClassification": [
+        "google-research-datasets/poem_sentiment",
+        "329d529d875a00c47ec71954a1a96ae167584770"
+    ],
+    "Quail": [
+        "RAR-b/quail",
+        "1851bc536f8bdab29e03e29191c4586b1d8d7c5a"
+    ],
+    "Quora-PL": [
+        "clarin-knext/quora-pl",
+        "0be27e93455051e531182b85e85e425aba12e9d4"
+    ],
+    "RARbCode": [
+        "RAR-b/humanevalpack-mbpp-pooled",
+        "25f7d11a7ac12dcbb8d3836eb2de682b98c825e4"
+    ],
+    "RARbMath": [
+        "RAR-b/math-pooled",
+        "2393603c0221ff52f448d12dd75f0856103c6cca"
+    ],
+    "RomanianReviewsSentiment": [
+        "universityofbucharest/laroseda",
+        "358bcc95aeddd5d07a4524ee416f03d993099b23"
+    ],
+    "RomanianSentimentClassification": [
+        "dumitrescustefan/ro_sent",
+        "155048684cea7a6d6af1ddbfeb9a04820311ce93"
+    ],
+    "RonSTS": [
+        "dumitrescustefan/ro_sts",
+        "41a33183b739070f3d46d9d446492c1d2f98ce1a"
+    ],
+    "SCDBPAccountabilityLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDBPAuditsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDBPCertificationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDBPTrainingLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDBPVerificationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDDAccountabilityLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDDAuditsLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDDCertificationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDDTrainingLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCDDVerificationLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "SCIDOCS-PL": [
+        "clarin-knext/scidocs-pl",
+        "45452b03f05560207ef19149545f168e596c9337"
+    ],
+    "SIQA": [
+        "RAR-b/siqa",
+        "4ed8415e9dc24060deefc84be59e2db0aacbadcc"
+    ],
+    "SciFact-PL": [
+        "clarin-knext/scifact-pl",
+        "47932a35f045ef8ed01ba82bf9ff67f6e109207e"
+    ],
+    "SpanishPassageRetrievalS2P": [
+        "jinaai/spanish_passage_retrieval",
+        "9cddf2ce5209ade52c2115ccfa00eb22c6d3a837"
+    ],
+    "SpartQA": [
+        "RAR-b/spartqa",
+        "9ab3ca3ccdd0d43f9cd6d346a363935d127f4f45"
+    ],
+    "SweFaqRetrieval": [
+        "AI-Sweden/SuperLim",
+        "7ebf0b4caa7b2ae39698a889de782c09e6f5ee56"
+    ],
+    "SwedishSentimentClassification": [
+        "timpal0l/swedish_reviews",
+        "105ba6b3cb99b9fd64880215be469d60ebf44a1b"
+    ],
+    "SwednClusteringP2P": [
+        "sbx/superlim-2",
+        "ef1661775d746e0844b299164773db733bdc0bf6"
+    ],
+    "SwednClusteringS2S": [
+        "sbx/superlim-2",
+        "ef1661775d746e0844b299164773db733bdc0bf6"
+    ],
+    "SwednRetrieval": [
+        "sbx/superlim-2",
+        "ef1661775d746e0844b299164773db733bdc0bf6"
+    ],
+    "SwissJudgementClassification": [
+        "rcds/swiss_judgment_prediction",
+        "29806f87bba4f23d0707d3b6d9ea5432afefbe2f"
+    ],
+    "TRECCOVID-PL": [
+        "clarin-knext/trec-covid-pl",
+        "81bcb408f33366c2a20ac54adafad1ae7e877fdd"
+    ],
+    "TelemarketingSalesRuleLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "TempReasonL1": [
+        "RAR-b/TempReason-l1",
+        "9097e99aa8c9d827189c65f2e11bfe756af439f6"
+    ],
+    "TempReasonL2Context": [
+        "RAR-b/TempReason-l2-context",
+        "f2dc4764024ae93cc42d9c09bc53a31da1af84b2"
+    ],
+    "TempReasonL2Fact": [
+        "RAR-b/TempReason-l2-fact",
+        "13758bcf978613b249d0de4d0840f57815122bdf"
+    ],
+    "TempReasonL2Pure": [
+        "RAR-b/TempReason-l2-pure",
+        "27668949b97bfb178901e0cf047cbee805305dc1"
+    ],
+    "TempReasonL3Context": [
+        "RAR-b/TempReason-l3-context",
+        "3c42539652de3d787cecfb897d3b20905e5c7250"
+    ],
+    "TempReasonL3Fact": [
+        "RAR-b/TempReason-l3-fact",
+        "4b70e90197901da24f3cfcd51d27111292878680"
+    ],
+    "TempReasonL3Pure": [
+        "RAR-b/TempReason-l3-pure",
+        "68fba138e7e63daccecfbdad0a9d2714e56e34ff"
+    ],
+    "TenKGnadClassification": [
+        "community-datasets/gnad10",
+        "0798affe9b3f88cfda4267b6fbc50fac67046ee5"
+    ],
+    "TextualismToolDictionariesLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "TextualismToolPlainLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "TopiOCQA": [
+        "McGill-NLP/TopiOCQA",
+        "66cd1dbf5577c653ecb99b385200f08e15e12f30"
+    ],
+    "TweetEmotionClassification": [
+        "emotone-ar-cicling2017/emotone_ar",
+        "0ded8ff72cc68cbb7bb5c01b0a9157982b73ddaf"
+    ],
+    "TweetTopicSingleClassification": [
+        "cardiffnlp/tweet_topic_single",
+        "87b7a0d1c402dbb481db649569c556d9aa27ac05"
+    ],
+    "UCCVCommonLawLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "UnfairTOSLegalBenchClassification": [
+        "nguha/legalbench",
+        "12ca3b695563788fead87a982ad1a068284413f4"
+    ],
+    "UrduRomanSentimentClassification": [
+        "community-datasets/roman_urdu",
+        "566be6449bb30b9b9f2b59173391647fe0ca3224"
+    ],
+    "VieStudentFeedbackClassification": [
+        "uitnlp/vietnamese_students_feedback",
+        "7b56c6cb1c9c8523249f407044c838660df3811a"
+    ],
+    "WRIMEClassification": [
+        "shunk031/wrime",
+        "3fb7212c389d7818b8e6179e2cdac762f2e081d9"
+    ],
+    "WinoGrande": [
+        "RAR-b/winogrande",
+        "f74c094f321077cf909ddfb8bccc1b5912a4ac28"
+    ],
+    "WisesightSentimentClassification": [
+        "pythainlp/wisesight_sentiment",
+        "14aa5773afa135ba835cc5179bbc4a63657a42ae"
+    ],
+    "XMarket": [
+        "jinaai/xmarket_ml",
+        "dfe57acff5b62c23732a7b7d3e3fb84ff501708b"
+    ],
+    "XPQARetrieval": [
+        "jinaai/xpqa",
+        "c99d599f0a6ab9b85b065da6f9d94f9cf731679f"
+    ],
+    "XStance": [
+        "ZurichNLP/x_stance",
+        "810604b9ad3aafdc6144597fdaa40f21a6f5f3de"
+    ],
+    "YahooAnswersTopicsClassification": [
+        "community-datasets/yahoo_answers_topics",
+        "78fccffa043240c80e17a6b1da724f5a1057e8e5"
+    ],
+    "indonli": [
+        "afaji/indonli",
+        "3c976110fc13596004dc36279fc4c453ff2c18aa"
+    ]
+}
