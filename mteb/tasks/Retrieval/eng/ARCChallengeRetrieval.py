@@ -13,6 +13,7 @@ class ARCChallenge(AbsTaskRetrieval):
         dataset={
             "path": "RAR-b/ARC-Challenge",
             "revision": "c481e0da3dcbbad8bce7721dea9085b74320a0a3",
+            "trust_remote_code": True,
         },
         type="Retrieval",
         category="s2s",
@@ -42,5 +43,13 @@ class ARCChallenge(AbsTaskRetrieval):
 }
 """,
         n_samples={"test": 1172},
-        avg_character_length={"test": 161.7},
+        avg_character_length={
+            "test": {
+                "average_document_length": 30.94235294117647,
+                "average_query_length": 131.56569965870307,
+                "num_documents": 9350,
+                "num_queries": 1172,
+                "average_relevant_docs_per_query": 1.0,
+            }
+        },
     )
