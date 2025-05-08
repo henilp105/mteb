@@ -30,8 +30,8 @@ class ColBERTWrapper(Wrapper):
             model_name: The ColBERT model to load from HuggingFace Hub.
             revision: The revision of the model to use.
             model_prompts: A dictionary mapping task names to prompt names.
-                First priority is given to the composed prompt of task name + prompt type (query or passage), then to the specific task prompt,
-                then to the composed prompt of task type + prompt type, then to the specific task type prompt,
+                First priority is given to the composed prompt of task name  prompt type (query or passage), then to the specific task prompt,
+                then to the composed prompt of task type  prompt type, then to the specific task type prompt,
                 and finally to the specific prompt type.
             **kwargs: Additional arguments to pass to the model.
         """
@@ -72,9 +72,9 @@ class ColBERTWrapper(Wrapper):
             **kwargs: Additional arguments to pass to the encoder.
 
             The order of priorities for prompt selection are:
-                1. Composed prompt of task name + prompt type (query or passage)
+                1. Composed prompt of task name  prompt type (query or passage)
                 2. Specific task prompt
-                3. Composed prompt of task type + prompt type (query or passage)
+                3. Composed prompt of task type  prompt type (query or passage)
                 4. Specific task type prompt
                 5. Specific prompt type (query or passage)
 
@@ -224,4 +224,31 @@ jina_colbert_v2 = ModelMeta(
         "DuRetrieval": [],
         "MIRACL": ["train"],
     },
+)
+
+gte_moderncolbert = ModelMeta(
+    loader=partial(
+        ColBERTWrapper,
+        model_name="lightonai/GTE-ModernColBERT-v1",
+        revision="c4c9666e5d203f205279dd99f2b81d3ecb6b8e5a",
+    ),
+    name="lightonai/GTE-ModernColBERT-v1",
+    languages=["eng"],  # English 
+    open_weights=True,
+    revision="c4c9666e5d203f205279dd99f2b81d3ecb6b8e5a",
+    public_training_code=None,
+    public_training_data=None,
+    release_date="2025-04-30",  
+    n_parameters=110 * 1e6,     # same scale as colbert-ir/colbertv2.0 
+    memory_usage_mb=418,        # similar footprint to colbert-ir/colbertv2.0 
+    max_tokens=300,             # default document length 
+    embed_dim=None,             # bag‑of‑token embeddings
+    license="apache-2.0",       # Apache 2.0 
+    similarity_fn_name="max_sim",  # uses MaxSim operator 
+    framework=["PyLate", "ColBERT"],  # PyLate ColBERT model 
+    reference="https://huggingface.co/lightonai/GTE-ModernColBERT-v1",
+    training_datasets={"MSMARCO": ["train"]},  # distilled on MS MARCO 
+    use_instructions=False,
+    adapted_from=None,
+    superseded_by=None,
 )
