@@ -233,7 +233,7 @@ gte_moderncolbert = ModelMeta(
         revision="c4c9666e5d203f205279dd99f2b81d3ecb6b8e5a",
     ),
     name="lightonai/GTE-ModernColBERT-v1",
-    languages=["eng"],  # English 
+    languages="eng",  # English 
     open_weights=True,
     revision="c4c9666e5d203f205279dd99f2b81d3ecb6b8e5a",
     public_training_code=None,
